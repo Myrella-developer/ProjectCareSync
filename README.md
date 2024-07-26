@@ -1,8 +1,8 @@
-# ProjectCareSync
+# Proyecto con Laravel - CareSync
 
 ## Descripción
 
-ProjectCareSync es una aplicación web de gestión de bienestar personal, construida con Laravel, Breeze y Livewire. Proporciona funcionalidades para el registro y autenticación de usuarios, la creación y edición de perfiles de usuario, y un diario de bienestar para registrar actividades diarias.
+CareSync es una aplicación web de gestión de bienestar personal, construida con Laravel, Breeze y Livewire. Proporciona funcionalidades para el registro y autenticación de usuarios, la creación y edición de perfiles de usuario, y un diario de bienestar para registrar actividades diarias.
 
 ## Funcionalidades Principales
 
