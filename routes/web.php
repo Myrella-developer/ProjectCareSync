@@ -1,13 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\WorkoutController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
- Route::view('/', 'welcome');
+// Rutas públicas
+Route::view('/', 'welcome');
 
-// Route::redirect('/', '/dashboard');
-
-Route::get('dashboard',[DashboardController::class,'index'])
+Route::get('dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
@@ -15,4 +15,15 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+// Rutas protegidas por middleware 'admin'
+Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
+    Route::get('/workouts', [WorkoutController::class, 'index'])->name('workouts.index');
+});
+
+// Rutas para usuarios normales
+Route::middleware(['auth'])->group(function () {
+    // Aquí puedes añadir rutas específicas para usuarios, como favoritos
+});
+
+require __DIR__ . '/auth.php';
+
